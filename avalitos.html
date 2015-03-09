@@ -35,10 +35,10 @@
 <template name="task">
     <li class="{{#if checked}}checked{{/if}} card indigo lighten-5">
         <div class="row">
-            <div class="col s2">
-                {{#if currentUser}}
+            <div class="col s2" data-uid="{{currentUser}}">
+            {{#if currentUser }}
                 <button class="delete waves-effect waves-light btn deep-purple"> &times; </button>
-                {{/if}}
+            {{/if}}
             </div>
             <div class="col s8">
                 <span class="text card-title blue-text text-darken-2">{{text}}</span>
