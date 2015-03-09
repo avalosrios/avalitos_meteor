@@ -12,6 +12,8 @@
             <input id="hide_completed" type="checkbox" checked="{{hideCompleted}}" />
             <label for="hide_completed" class="hide-completed-label">Esconder completadas</label>
         </p>
+        {{> loginButtons}} 
+        {{#if currentUser }}
         <form class="new-task col s12">
             <div class="input-field col">
             <i class="mdi-editor-mode-edit prefix"></i>
@@ -19,12 +21,13 @@
             
             </div>
         </form>
+        {{/if}}
     </header>
     <ul>
         {{#each tasks}}
           {{> task}}
         {{/each}}
-    </ul>  
+    </ul> 
   </div>
 
 </body>
@@ -37,6 +40,7 @@
             </div>
             <div class="col s8">
                 <span class="text card-title blue-text text-darken-2">{{text}}</span>
+                <span class="text"> - {{username}}</span>
             </div>
             <div class="col s2">
                 <p>
