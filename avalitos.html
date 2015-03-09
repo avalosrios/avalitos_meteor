@@ -36,17 +36,21 @@
     <li class="{{#if checked}}checked{{/if}} card indigo lighten-5">
         <div class="row">
             <div class="col s2">
+                {{#if currentUser}}
                 <button class="delete waves-effect waves-light btn deep-purple"> &times; </button>
+                {{/if}}
             </div>
             <div class="col s8">
                 <span class="text card-title blue-text text-darken-2">{{text}}</span>
                 <span class="text"> - {{username}}</span>
             </div>
             <div class="col s2">
+                {{#if currentUser }}
                 <p>
                     <input id="checkbox_{{this._id}}" type="checkbox" checked="{{checked}}" class="toggle-checked" />
                     <label for="checkbox_{{this._id}}">Check </label>
                 </p>
+                {{/if}}
             </div>
         </div>
      </li>
