@@ -3,16 +3,45 @@
 </head>
 
 <body>
+    <!-- Dropdown structure --> 
+    <ul id="logindropdown" class="dropdown-content">
+        <li><a href="#">Login buttons</a></li>
+        <li>
+        </li>
+    </ul>    
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+        <span class="brand-logo"> Tareas Avalitos</span> 
+        <ul class="right hide-on-med-and-down">
+            <!--XXX  TODO: Esto puede ir en un template -->
+            <li><a class="dropdown-button" href="#!"
+                                           data-activates="logindropdown">
+                    Dropdown<i class="mdi-navigation-arrow-drop-down
+                    right"></i></a>
+            </li>
+        </ul>
 
-  <div class="container amber lighten-5 ">
+        <ul id="nav-mobile" class="side-nav">
+            <li>
+            </li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse">
+            <i class="mdi-navigation-menu"></i>
+        </a>
+    </div>
+  </nav>
+  
+  <div class="container section amber lighten-5 ">
     <header>
-        <h1> Tareas Avalitos</h1> 
-        <h2>Pendientes {{incompleteCount}}</h2>
+        <div class="section">
+          <h3>Pendientes {{incompleteCount}}</h3>
+          {{> loginButtons}} 
+        </div>
+        <div class="divider"> </div>
         <p class="hide-completed">
             <input id="hide_completed" type="checkbox" checked="{{hideCompleted}}" />
             <label for="hide_completed" class="hide-completed-label">Esconder completadas</label>
         </p>
-        {{> loginButtons}} 
         {{#if currentUser }}
         <form class="new-task col s12">
             <div class="input-field col">
@@ -34,24 +63,27 @@
 
 <template name="task">
     <li class="{{#if checked}}checked{{/if}} card indigo lighten-5">
-        <div class="row">
+        <div class="row"> 
+        <div class="section">
             <div class="col s2" data-uid="{{currentUser}}">
             {{#if currentUser }}
                 <button class="delete waves-effect waves-light btn deep-purple"> &times; </button>
             {{/if}}
             </div>
-            <div class="col s8">
-                <span class="text card-title blue-text text-darken-2">{{text}}</span>
-                <span class="text"> - {{username}}</span>
-            </div>
-            <div class="col s2">
+
+            <div class="col s2 offset-s8">
                 {{#if currentUser }}
-                <p>
                     <input id="checkbox_{{this._id}}" type="checkbox" checked="{{checked}}" class="toggle-checked" />
                     <label for="checkbox_{{this._id}}">Check </label>
-                </p>
                 {{/if}}
             </div>
+        </div>
+        <div class="section">
+            <div class="col s12">
+                <span class="text flow-text card-title blue-text text-darken-2">{{text}}</span>
+                <span class="badge">{{username}}</span>
+            </div>
+        </div>
         </div>
      </li>
 

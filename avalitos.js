@@ -1,3 +1,10 @@
+//XXX quitar el JS de aqui
+//Esto es para iniciar el dropdown
+//$(function(){
+//   $(".dropdown-button").dropdown();
+// });
+
+
 Tasks = new Mongo.Collection("tasks");
 if (Meteor.isClient) {
   // counter starts at 0
