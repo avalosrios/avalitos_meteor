@@ -1,0 +1,50 @@
+<head>
+  <title>avalitos</title>
+</head>
+
+<body>
+
+  <div class="container amber lighten-5 ">
+    <header>
+        <h1> Tareas Avalitos</h1> 
+        <h2>Pendientes {{incompleteCount}}</h2>
+        <p class="hide-completed">
+            <input id="hide_completed" type="checkbox" checked="{{hideCompleted}}" />
+            <label for="hide_completed" class="hide-completed-label">Esconder completadas</label>
+        </p>
+        <form class="new-task col s12">
+            <div class="input-field col">
+            <i class="mdi-editor-mode-edit prefix"></i>
+            <input type="text" name="text" class="validate" placeholder="Agregar nueva tarea a la lista" />
+            
+            </div>
+        </form>
+    </header>
+    <ul>
+        {{#each tasks}}
+          {{> task}}
+        {{/each}}
+    </ul>  
+  </div>
+
+</body>
+
+<template name="task">
+    <li class="{{#if checked}}checked{{/if}} card indigo lighten-5">
+        <div class="row">
+            <div class="col s2">
+                <button class="delete waves-effect waves-light btn deep-purple"> &times; </button>
+            </div>
+            <div class="col s8">
+                <span class="text card-title blue-text text-darken-2">{{text}}</span>
+            </div>
+            <div class="col s2">
+                <p>
+                    <input id="checkbox_{{this._id}}" type="checkbox" checked="{{checked}}" class="toggle-checked" />
+                    <label for="checkbox_{{this._id}}">Check </label>
+                </p>
+            </div>
+        </div>
+     </li>
+
+</template>
